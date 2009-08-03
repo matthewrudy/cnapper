@@ -3,7 +3,7 @@ module CutyCapt
   def generate(url)
     path = get_tmp_path
     `CutyCapt --url=#{url} --out=#{path}`
-    
+    sleep 1 
     return path
   end
 

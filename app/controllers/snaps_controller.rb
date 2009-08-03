@@ -11,6 +11,7 @@ class SnapsController < ApplicationController
     @snap = Snap.new(params[:snap])
 
     if @snap.save
+      @snap.start_generation
       redirect_to(@snap)
     else
       flash[:error] = "Failed to create Snap"
