@@ -1,0 +1,4 @@
+<% form_for(@snap||Snap.new) do |f| %>
+  <%= f.text_field(:url) %>
+  <%= submit_tag("generate") %>
+<% end %>

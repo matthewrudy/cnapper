@@ -1,0 +1,11 @@
+<h1>Snaps</h1>
+<p>Simple, scalable Screenshots</p>
+
+<%= render "form" %>
+
+<% @recent.each do |snap| %>
+  <div>
+    <%= image_tag snap.image.url(:thumb) %>
+  </div>
+<% end %>
+
