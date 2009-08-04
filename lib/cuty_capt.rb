@@ -2,7 +2,8 @@ require 'tempfile'
 module CutyCapt
   def generate(url)
     path = get_tmp_path
-    `CutyCapt --url=#{url} --out=#{path}`
+
+    shell_command "CutyCapt --url=#{url} --out=#{path}"
     
     return path
   end
@@ -14,7 +15,12 @@ module CutyCapt
       return "#{file.path}.#{extension}"
     end
   end
-    
+
+  def shell_command(command)
+    Rails.logger.info(command)
+    `#{command}`
+  end
+
   extend self
 end
 
