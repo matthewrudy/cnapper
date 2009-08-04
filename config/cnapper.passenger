@@ -1,0 +1,6 @@
+NameVirtualHost *:80
+<VirtualHost *:80>
+  ServerName wagn.local
+  DocumentRoot /home/matthew/projects/queueing-talk/cnapper/public
+  RailsEnv development
+</VirtualHost>
