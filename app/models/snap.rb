@@ -5,8 +5,12 @@ class Snap < ActiveRecord::Base
 
   #before_create :build_image
 
+  #def start_generation
+  #  MiddleMan.worker(:snap_generator_worker).async_generate(:arg => self.id)
+  #end
+
   def start_generation
-    MiddleMan.worker(:snap_generator_worker).async_generate(:arg => self.id)
+    Rudeq::SnapGeneratorWorker.queue.set(self.id)
   end
 
   def build_image
