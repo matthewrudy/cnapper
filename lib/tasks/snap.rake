@@ -1,6 +1,8 @@
-namespace :rudequeue do
-  task :process => :environment do
-    Rudeq::SnapGeneratorWorker.new.do!
+task :snap => :environment do
+  worker = Rudeq::SnapGeneratorWorker.new
+  loop do
+    worker.do!
+    sleep 5
   end
 end
 
