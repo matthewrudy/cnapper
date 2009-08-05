@@ -10,7 +10,7 @@ class Snap < ActiveRecord::Base
   #end
 
   def start_generation
-    Rudeq::SnapGeneratorWorker.queue.set(self.id)
+    Nanite.request("/nanny/generate", self.id)
   end
 
   def build_image
